@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+  <title>Destination List</title>
+</head>
+<body>
+  {% block content %}
+    <div class="row">
+      <div>
+        <h1>Destinations</h1>
+      </div>
+
+      <div>
+        <form action="{% url 'destination_create' %}" method="get" style="display:inline;">
+          <button type="submit" class="btn btn-primary">Add New Destination</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for destination in destinations %}
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="listing-item">
+            <div class="listing-image">
+              <img src="{{ destination.image.url }}" alt="Image" class="img-fluid" />
+            </div>
+            <div class="listing-item-content">
+              <h2 class="mb-1"><a href="{% url 'destination_detail' destination.pk %}">{{ destination.place_name }}</a></h2>
+              <div class="d-flex justify-content-between">
+                <a href="{% url 'destination_update' destination.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a href="{% url 'destination_delete' destination.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endblock %}
+</body>

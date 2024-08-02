@@ -1,0 +1,19 @@
+<!-- destination_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ destination.place_name }}</title>
+</head>
+<body>
+    <h1>{{ destination.place_name }}</h1>
+    <img src="{{ destination.image.url }}" alt="{{ destination.place_name }}">
+    <p><strong>Weather:</strong> {{ destination.weather }}</p>
+    <p><strong>State:</strong> {{ destination.state }}</p>
+    <p><strong>District:</strong> {{ destination.district }}</p>
+    <p><strong>Description:</strong> {{ destination.description }}</p>
+    <a href="{{ destination.google_map_link }}" target="_blank">View on Google Maps</a>
+</body>
+</html>
+

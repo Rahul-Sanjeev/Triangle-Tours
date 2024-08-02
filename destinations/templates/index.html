@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tourist Destinations</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <h1>Tourist Destinations</h1>
+    <ul>
+      {% for destination in destinations %}
+        <li>
+          <h2>{{ destination.place_name }}</h2>
+          <p>{{ destination.weather }}</p>
+          <p>{{ destination.state }}, {{ destination.district }}</p>
+          <a href="{{ destination.google_map_link }}">Google Map</a>
+          <img src="{{ destination.image.url }}" alt="{{ destination.place_name }}" />
+          <p>{{ destination.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
